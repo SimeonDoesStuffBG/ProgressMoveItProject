@@ -9,7 +9,8 @@
       Title="MainPage">
     <Grid>
         <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="49,94,0,0" TextWrapping="Wrap"  Text="" VerticalAlignment="Top" Width="493" Height="21"/>
-        <Button Content="Enter" HorizontalAlignment="Left" Margin="589,95,0,0" VerticalAlignment="Top" Width="112" Click="DisplayText"/>
+        <Button Content="Browse..." HorizontalAlignment="Left" Margin="578,95,0,0" VerticalAlignment="Top" Width="173" Click="BrowseFolders" Height="20"/>
+        <Button x:Name="FileManagerToggle" Content="Start Watching file" HorizontalAlignment="Center" Margin="0,151,0,0" VerticalAlignment="Top" Width="702" Click="GetFilePath"/>
         <Button Content="Log out" HorizontalAlignment="Left" Margin="731,21,0,0" VerticalAlignment="Top" Click="DoLogout"/>
     </Grid>
 

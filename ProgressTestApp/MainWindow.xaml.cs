@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using ProgressTestApp.Pages;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +18,7 @@ namespace ProgressTestApp;
 /// </summary>
 public partial class MainWindow : Window
 {
+    public static NavigationService NavigationService => ((MainWindow)Application.Current.MainWindow).NavFrame.NavigationService;
     public MainWindow()
     {
         InitializeComponent();

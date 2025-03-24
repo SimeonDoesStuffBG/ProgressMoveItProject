@@ -3,11 +3,9 @@ D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\bin\D
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\bin\Debug\net8.0-windows\ProgressTestApp.runtimeconfig.json
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\bin\Debug\net8.0-windows\ProgressTestApp.dll
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\bin\Debug\net8.0-windows\ProgressTestApp.pdb
-D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\MainWindow.g.cs
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\App.g.cs
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\ProgressTestApp_MarkupCompile.cache
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\ProgressTestApp_MarkupCompile.lref
-D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\MainWindow.baml
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\ProgressTestApp.g.resources
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\ProgressTestApp.GeneratedMSBuildEditorConfig.editorconfig
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\ProgressTestApp.AssemblyInfoInputs.cache
@@ -20,5 +18,8 @@ D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\D
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\ref\ProgressTestApp.dll
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\ProgressTestApp.sourcelink.json
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\Pages\MainPage.g.cs
-D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\Pages\MainPage.baml
+D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\MainWindow.baml
+D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\Pages\LoginPage.g.cs
+D:\Simeon\Programing Projects\DOTNET\ProgressMoveItProject\ProgressTestApp\obj\Debug\net8.0-windows\Pages\LoginPage.baml

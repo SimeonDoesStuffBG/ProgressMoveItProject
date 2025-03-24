@@ -29,5 +29,13 @@ namespace ProgressTestApp.Pages
         {
             Debug.Write(FilePath.Text + "\n");
         }
+
+        private void DoLogout(object sender, RoutedEventArgs e)
+        {
+            if(this.NavigationService!=null)
+            {
+                this.NavigationService.Navigate(new LoginPage());
+            }
+        }
     }
 }

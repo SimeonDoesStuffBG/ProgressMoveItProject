@@ -7,5 +7,7 @@
         xmlns:pages="clr-namespace:ProgressTestApp.Pages"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <pages:MainPage></pages:MainPage>
+    <Frame x:Name="NavFrame" Source="Pages/LoginPage.xaml" NavigationUIVisibility="Hidden"/>
+    
+
 </Window>

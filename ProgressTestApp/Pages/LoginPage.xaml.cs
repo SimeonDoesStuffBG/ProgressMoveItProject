@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProgressTestApp.Functions;
+using ProgressTestApp.HTTP;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -26,11 +28,22 @@ namespace ProgressTestApp.Pages
             InitializeComponent();
         }
 
-        private void DoLogin(object sender, RoutedEventArgs e)
+        private async void DoLogin(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService != null)
+            try
             {
-                NavigationService.Navigate(new MainPage());
+                string username = Username.Text;
+                string password = Password.Password;
+
+                await HttpUserControls.Login(username, password);
+                if (this.NavigationService != null)
+                {
+                    NavigationService.Navigate(new MainPage());
+                }
+            }
+            catch(Exception err)
+            {
+                Warnings.ShowError(err.Message);
             }
         }
     }

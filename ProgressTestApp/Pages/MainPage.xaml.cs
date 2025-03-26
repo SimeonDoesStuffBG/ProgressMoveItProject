@@ -27,6 +27,7 @@ namespace ProgressTestApp.Pages
     public partial class MainPage : Page
     {
         FileSystemWatcher watcher;
+        bool isWatching = false;
         public MainPage()
         {
             InitializeComponent();
@@ -36,15 +37,25 @@ namespace ProgressTestApp.Pages
             string filePath = FilePath.Text;
             if (IO_Path.Exists(filePath))
             {
-                FileManagerToggle.Content = "Stop Tracking";
+                if (!isWatching)
+                {
+                    FileManagerToggle.Content = "Stop Tracking";
 
-                watcher = new FileSystemWatcher(filePath);
-                watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite | NotifyFilters.FileName;
-                watcher.Changed += new FileSystemEventHandler(Changed);
-                watcher.Created += new FileSystemEventHandler(FileCreated);
-                watcher.Deleted += new FileSystemEventHandler(Deleted);
-                watcher.Renamed += new RenamedEventHandler(Renamed);
-                watcher.EnableRaisingEvents = true;
+                    watcher = new FileSystemWatcher(filePath);
+                    watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite | NotifyFilters.FileName;
+                    watcher.Changed += new FileSystemEventHandler(Changed);
+                    watcher.Created += new FileSystemEventHandler(FileCreated);
+                    watcher.Deleted += new FileSystemEventHandler(Deleted);
+                    watcher.Renamed += new RenamedEventHandler(Renamed);
+                    watcher.EnableRaisingEvents = true;
+                }
+                else
+                {
+                    watcher = null;
+                    FileManagerToggle.Content = "Start Watching file";
+                }
+
+                isWatching = !isWatching;
             }
             else
             {
@@ -54,12 +65,12 @@ namespace ProgressTestApp.Pages
 
         private void Renamed(object sender, RenamedEventArgs e)
         {
-            Debug.WriteLine("File Renamed");
+            Debug.WriteLine("File Renamed" + e.FullPath.ToString());
         }
 
         private void Deleted(object sender, FileSystemEventArgs e)
         {
-            Debug.WriteLine("File Deleted");
+            Debug.WriteLine("File Deleted: " + e.FullPath.ToString());
         }
 
         private void FileCreated(object sender, FileSystemEventArgs e)
@@ -69,7 +80,7 @@ namespace ProgressTestApp.Pages
 
         private void Changed(object sender, FileSystemEventArgs e)
         {
-            Debug.WriteLine("Change made");
+            Debug.WriteLine("Change made to " + e.FullPath.ToString());
         }
 
         private void DoLogout(object sender, RoutedEventArgs e)

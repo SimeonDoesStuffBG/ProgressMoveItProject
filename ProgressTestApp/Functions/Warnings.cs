@@ -10,7 +10,7 @@ namespace ProgressTestApp.Functions
 {
     class Warnings
     {
-        public static void ShowError(string ErrorText, string ErrorTitle="Problem")
+        public static void ShowError(string ErrorText, string ErrorTitle="Error")
         {
             MessageBox.Show(ErrorText, ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }

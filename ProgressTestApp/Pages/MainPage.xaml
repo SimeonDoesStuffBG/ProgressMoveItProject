@@ -12,7 +12,7 @@
         <Button Content="Log out" HorizontalAlignment="Left" Margin="731,21,0,0" VerticalAlignment="Top" Click="DoLogout"/>
         <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="49,94,0,0" TextWrapping="Wrap"  Text="" VerticalAlignment="Top" Width="493" Height="21"/>
         <Button  x:Name="BrowseButton" Content="Browse..." HorizontalAlignment="Left" Margin="578,95,0,0" VerticalAlignment="Top" Width="173" Click="BrowseFolders" Height="20"/>
-        <Button x:Name="FileManagerToggle" Content="Start Watching Folder" HorizontalAlignment="Center" Margin="0,151,0,0" VerticalAlignment="Top" Width="702" Click="GetFilePath"/>
+        <Button x:Name="FileManagerToggle" Content="Start Watching Folder" HorizontalAlignment="Center" Margin="0,151,0,0" VerticalAlignment="Top" Width="702" Click="ToggleTrackFolder"/>
         <Label Content="Folder to be tracked:" Height="24" Width="161" HorizontalAlignment="Left" Margin="49,56,0,0" VerticalAlignment="Top"/>
         <Label x:Name="InfoLabel" Content="" HorizontalAlignment="Center" Margin="0,203,0,0" VerticalAlignment="Top" Width="702" Height="47"/>
         

@@ -48,5 +48,13 @@ namespace ProgressTestApp.Pages
                 Warnings.ShowError(err.Message);
             }
         }
+
+        private void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                DoLogin(sender, e);
+            }
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace ProgressTestApp.Pages
             InitializeComponent();
             UserName.Content = HttpUserControls.Username;
         }
-        void GetFilePath(object sender, RoutedEventArgs e)
+        void ToggleTrackFolder(object sender, RoutedEventArgs e)
         {
             string filePath = FilePath.Text;
             Debug.WriteLine(HttpFileControls.HomeFolderID);
@@ -43,7 +43,7 @@ namespace ProgressTestApp.Pages
                 if (!isWatching)
                 {
                     FileManagerToggle.Content = "Stop Tracking";
-                    InfoLabel.Content = $"Tracking {filePath}. Files added here will be uploaded to your Home folder with the name <Folder Name>-<File Name>";
+                    InfoLabel.Content = $"Tracking {filePath}. Files added here will be uploaded to your profile's Home folder. The name of the tracked folder will be appended at the start of the file name";
                     FilePath.IsEnabled = false;
                     BrowseButton.IsEnabled = false;
                     watcher = new FileSystemWatcher(filePath);

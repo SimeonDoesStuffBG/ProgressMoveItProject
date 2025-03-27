@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProgressTestApp"
         xmlns:pages="clr-namespace:ProgressTestApp.Pages"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Progress File tracker" Height="450" Width="800">
     <Frame x:Name="NavFrame" Source="Pages/LoginPage.xaml" NavigationUIVisibility="Hidden"/>
     
 

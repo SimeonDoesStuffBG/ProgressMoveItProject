@@ -8,16 +8,11 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.Win32.SafeHandles;
+using System.Runtime.CompilerServices;
+using ProgressTestApp.Models;
 
 namespace ProgressTestApp.HTTP
-{
-    class UserToken
-    {
-        public string access_token { get; set; }
-        public string token_type { get; set; }
-        public int expires_in { get; set; }
-        public string refresh_token { get; set; }
-    }
+{ 
         class HttpUserControls : HttpConnection
         {
             private static string tokenUrl = "api/v1/token";
@@ -38,7 +33,16 @@ namespace ProgressTestApp.HTTP
                     return refreshToken; 
                 }
             }
-            public static async Task Login(string username, string password)
+
+            private static string _username;
+            public static string Username
+            {
+                get
+                {
+                    return _username;
+                }
+            }
+        public static async Task Login(string username, string password)
             {
                 if (string.IsNullOrEmpty(username))
                 {
@@ -69,10 +73,15 @@ namespace ProgressTestApp.HTTP
 
                 //var jsonResponse = await response.Content.ReadFromJsonAsync<UserToken>();
                 var jsonResponse = await HttpContentJsonExtensions.ReadFromJsonAsync<UserToken>(response.Content);
-                accessToken = jsonResponse?.access_token;
-                refreshToken = jsonResponse?.refresh_token;
 
-                Debug.WriteLine($"{jsonResponse?.access_token}; {jsonResponse?.refresh_token}\n");
+            accessToken = jsonResponse?.access_token;
+            refreshToken = jsonResponse?.refresh_token;
+            _username = username;
+            if (!string.IsNullOrEmpty(accessToken))
+            {
+                sharedClient.DefaultRequestHeaders.Remove("Authorization");
+                sharedClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {AccessToken}");
+            }
             }
         }
     

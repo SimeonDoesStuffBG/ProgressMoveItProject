@@ -36,6 +36,8 @@ namespace ProgressTestApp.Pages
                 string password = Password.Password;
 
                 await HttpUserControls.Login(username, password);
+
+                await HttpFileControls.GetHomeFolder();
                 if (this.NavigationService != null)
                 {
                     NavigationService.Navigate(new MainPage());

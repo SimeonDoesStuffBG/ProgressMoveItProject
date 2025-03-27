@@ -10,7 +10,7 @@
 
     <Grid>
         <Label Content="Username:" HorizontalAlignment="Left" Margin="146,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.34,0.566"/>
-        <TextBox x:Name="Username" HorizontalAlignment="Left" Margin="233,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295"/>
+        <TextBox x:Name="Username" HorizontalAlignment="Left" Margin="233,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="146,137,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.34,0.566"/>
         <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="233,141,0,0" VerticalAlignment="Top" Width="295"/>
         <Button Content="Login" HorizontalAlignment="Left" Margin="233,195,0,0" VerticalAlignment="Top" Width="295" Click="DoLogin"/>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using ProgressTestApp.Functions;
+using ProgressTestApp.HTTP;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,28 +32,33 @@ namespace ProgressTestApp.Pages
         public MainPage()
         {
             InitializeComponent();
+            UserName.Content = HttpUserControls.Username;
         }
         void GetFilePath(object sender, RoutedEventArgs e)
         {
             string filePath = FilePath.Text;
+            Debug.WriteLine(HttpFileControls.HomeFolderID);
             if (IO_Path.Exists(filePath))
             {
                 if (!isWatching)
                 {
                     FileManagerToggle.Content = "Stop Tracking";
-
+                    InfoLabel.Content = $"Tracking {filePath}. Files added here will be uploaded to your Home folder with the name <Folder Name>-<File Name>";
+                    FilePath.IsEnabled = false;
+                    BrowseButton.IsEnabled = false;
                     watcher = new FileSystemWatcher(filePath);
                     watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite | NotifyFilters.FileName;
-                    watcher.Changed += new FileSystemEventHandler(Changed);
                     watcher.Created += new FileSystemEventHandler(FileCreated);
-                    watcher.Deleted += new FileSystemEventHandler(Deleted);
-                    watcher.Renamed += new RenamedEventHandler(Renamed);
+                   
                     watcher.EnableRaisingEvents = true;
                 }
                 else
                 {
                     watcher = null;
                     FileManagerToggle.Content = "Start Watching file";
+                    InfoLabel.Content = "Tracking stopped";
+                    FilePath.IsEnabled = true;
+                    BrowseButton.IsEnabled = true;
                 }
 
                 isWatching = !isWatching;
@@ -62,25 +68,18 @@ namespace ProgressTestApp.Pages
                 Warnings.ShowError("The Text Entered is not a valid path", "Invalid Path");
             }
         }
-
-        private void Renamed(object sender, RenamedEventArgs e)
+        private async void FileCreated(object sender, FileSystemEventArgs e)
         {
-            Debug.WriteLine("File Renamed" + e.FullPath.ToString());
-        }
+            try 
+            {
+                await HttpFileControls.AddNewFile(e.FullPath,e.Name);
 
-        private void Deleted(object sender, FileSystemEventArgs e)
-        {
-            Debug.WriteLine("File Deleted: " + e.FullPath.ToString());
-        }
-
-        private void FileCreated(object sender, FileSystemEventArgs e)
-        {
-            Debug.WriteLine("File created: " + e.FullPath.ToString());
-        }
-
-        private void Changed(object sender, FileSystemEventArgs e)
-        {
-            Debug.WriteLine("Change made to " + e.FullPath.ToString());
+                Debug.WriteLine("Success");
+            }
+            catch(Exception err)
+            {
+                Warnings.ShowError(err.Message);
+            }
         }
 
         private void DoLogout(object sender, RoutedEventArgs e)
